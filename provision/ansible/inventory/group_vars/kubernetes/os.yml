@@ -1,0 +1,19 @@
+---
+# (string) Timezone for the servers
+# timezone: "America/New_York"
+
+# (list) Additional ssh public keys to add to the nodes
+# ssh_authorized_keys:
+
+packages:
+  - dnf-plugin-system-upgrade
+  - dnf-utils
+  - hdparm
+  - htop
+  - intel-gpu-tools
+  - ipvsadm
+  - lm_sensors
+  - nano
+  - nvme-cli
+  - socat
+  - python3-libselinux
