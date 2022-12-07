@@ -28,12 +28,12 @@
     - name: Packages
       block:
         - name: Packages | Install required packages
-          ansible.builtin.dnf:
+          ansible.builtin.package:
             name: "{{ packages | default([]) }}"
             state: present
             update_cache: true
         - name: Packages | Remove leaf packages
-          ansible.builtin.dnf:
+          ansible.builtin.package:
             autoremove: true
     - name: User Configuration
       block:
@@ -48,7 +48,7 @@
           ansible.builtin.systemd:
             service: firewalld.service
             enabled: false
-            masked: true
+              # masked: true
             state: stopped
         - name: System Configuration (1) | Enable fstrim
           ansible.builtin.systemd:
@@ -86,13 +86,14 @@
               fs.inotify.max_user_watches: 524288
               fs.inotify.max_user_instances: 512
         - name: System Configuration (2) | Disable swap
-          ansible.builtin.dnf:
+          ansible.builtin.package:
             name: zram-generator-defaults
             state: absent
-        - name: System Configuration (2) | Permissive SELinux
-          ansible.posix.selinux:
-            state: permissive
-            policy: targeted
+              # - name: System Configuration (2) | Permissive SELinux
+              # ansible.posix.selinux:
+              # state: permissive
+              # policy: targeted
+              # configfile: "/etc/selinux/config"
       notify: Reboot
 
   handlers:

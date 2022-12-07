@@ -6,14 +6,13 @@
 # ssh_authorized_keys:
 
 packages:
-  - dnf-plugin-system-upgrade
-  - dnf-utils
+  - apt-utils
   - hdparm
   - htop
   - intel-gpu-tools
   - ipvsadm
-  - lm_sensors
+  - lm-sensors
   - nano
   - nvme-cli
   - socat
-  - python3-libselinux
+  - python3-selinux

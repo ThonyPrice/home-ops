@@ -11,3 +11,4 @@ resources:
   - ./metallb
   - ./metrics-server
   - ./reloader
+  - kube-vip
