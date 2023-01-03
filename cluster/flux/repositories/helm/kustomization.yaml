@@ -10,8 +10,8 @@ resources:
   - ./ingress-nginx-charts.yaml
   - ./jetstack-charts.yaml
   - ./kubereboot-charts.yaml
-  - ./rook-ceph.yaml
   - ./k8s-gateway-charts.yaml
   - ./metallb-charts.yaml
   - ./metrics-server-charts.yaml
+  - ./rook-ceph.yaml
   - ./stakater-charts.yaml
