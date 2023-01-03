@@ -30,7 +30,7 @@ spec:
         ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-staging"
-          external-dns.alpha.kubernetes.io/target: &host "rook.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/target: &host "ipv4.${SECRET_DOMAIN}"
           external-dns/is-public: "true"
           hajimari.io/enable: "true"
         host:
