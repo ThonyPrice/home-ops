@@ -9,11 +9,12 @@ spec:
   chart:
     spec:
       chart: rook-ceph-cluster
-      version: v1.10.7
+      version: v1.10.8
       sourceRef:
         kind: HelmRepository
         name: rook-ceph
         namespace: flux-system
+  maxHistory: 3
   install:
     createNamespace: true
     remediation:
@@ -30,11 +31,11 @@ spec:
         ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-staging"
-          external-dns.alpha.kubernetes.io/target: &host "ipv4.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           external-dns/is-public: "true"
           hajimari.io/enable: "true"
         host:
-          name: *host
+          name: &host "rook.${SECRET_DOMAIN}"
           path: /
         tls:
           - hosts:
@@ -103,10 +104,10 @@ spec:
             activeStandby: true
             resources:
               requests:
-                cpu: 200m
-                memory: 1Gi
+                cpu: 500m
+                memory: 2Gi
               limits:
-                memory: 1Gi
+                memory: 2Gi
         storageClass:
           enabled: true
           isDefault: false
@@ -139,10 +140,10 @@ spec:
             port: 80
             resources:
               requests:
-                cpu: 1000m
-                memory: 0.5Gi
+                cpu: 500m
+                memory: 1Gi
               limits:
-                memory: 0.5Gi
+                memory: 1Gi
             instances: 1
           healthCheck:
             bucket:
