@@ -20,8 +20,11 @@ spec:
     remediation:
       retries: 5
   upgrade:
+    cleanupOnFail: true
     remediation:
-      retries: 5
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     monitoring:
       enabled: true
@@ -62,10 +65,6 @@ spec:
           - name: k8s-0
             devices:
               - name: "sdb"
-    cephBlockPoolsVolumeSnapshotClass:
-      enabled: true
-      name: csi-ceph-blockpool
-      isDefault: true
     cephBlockPools:
       - name: ceph-blockpool
         spec:
