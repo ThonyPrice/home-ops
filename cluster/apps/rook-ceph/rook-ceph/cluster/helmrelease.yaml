@@ -148,9 +148,9 @@ spec:
             resources:
               requests:
                 cpu: 500m
-                memory: 1Gi
+                memory: 2Gi
               limits:
-                memory: 1Gi
+                memory: 2Gi
             instances: 1
           healthCheck:
             bucket:
