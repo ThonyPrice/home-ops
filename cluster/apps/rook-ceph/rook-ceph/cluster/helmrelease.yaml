@@ -17,10 +17,12 @@ spec:
   maxHistory: 3
   install:
     createNamespace: true
+    disableWait: true
     remediation:
       retries: 5
   upgrade:
     cleanupOnFail: true
+    disableWait: true
     remediation:
       retries: 3
   uninstall:
@@ -38,7 +40,7 @@ spec:
           external-dns/is-public: "true"
           hajimari.io/enable: "true"
         host:
-          name: &host "rook.${SECRET_DOMAIN}"
+          name: &host "rook.thonyprice.com"
           path: /
         tls:
           - hosts:
