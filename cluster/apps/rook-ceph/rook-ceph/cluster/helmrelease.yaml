@@ -58,6 +58,12 @@ spec:
         enabled: true
         urlPrefix: /
         ssl: false
+      mon:
+        # Set the number of mons to be started. Generally recommended to be 3.
+        count: 1
+        # The mons should be on unique nodes. For production, at least 3 nodes are recommended for this reason.
+        # Mons should only be allowed on the same node for test environments where data loss is acceptable.
+        allowMultiplePerNode: true
       storage:
         useAllNodes: false
         useAllDevices: false
