@@ -73,18 +73,18 @@ spec:
       resources:
         mgr:
           limits:
-            cpu: "500"
-            memory: "0.5Gi"
+            cpu: "500m"
+            memory: "256Mi"
           requests:
             cpu: "500m"
             memory: "256Mi"
         mon:
           limits:
             cpu: "500m"
-            memory: "1Gi"
+            memory: "256Mi"
           requests:
             cpu: "500m"
-            memory: "1Gi"
+            memory: "256Mi"
       storage:
         useAllNodes: false
         useAllDevices: false
